@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Produtos - Firebase</title>
+
+  <style>
+    :root {
+      --pastel-primary: #A5B8D9;
+      --pastel-primary-light: #C8D9E8;
+      --pastel-bg: #EDEFF5;
+      --pastel-dark: #88A2C4;
+      --text-dark: #2F3A4A;
+    }
+
+    body {
+      margin: 0;
+      background: var(--pastel-bg);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    header {
+      background: var(--pastel-primary);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    header button {
+      background: white;
+      color: var(--pastel-dark);
+      border: none;
+      padding: 8px 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    header button:hover {
+      background: var(--pastel-primary-light);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .titulo {
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: var(--pastel-dark);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    form input {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--pastel-primary-light);
+      border-radius: 10px;
+      background: var(--pastel-bg);
+      transition: 0.2s;
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: var(--pastel-dark);
+      background: white;
+    }
+
+    form button {
+      background: var(--pastel-dark);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: var(--pastel-primary);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background: var(--pastel-primary-light);
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 6px solid var(--pastel-dark);
+    }
+
+    li span {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    li button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 10px;
+      color: var(--pastel-dark);
+      transition: 0.2s;
+    }
+
+    li button:hover {
+      transform: scale(1.2);
+    }
+
+    .btns {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Gerenciar Produtos</h1>
+    <button id="logoutBtn">Sair</button>
+  </header>
+
+  <div class="container">
+    <div class="titulo">Cadastro de Produtos</div>
+
+    <form id="formProduto">
+      <input type="text" id="nome" placeholder="Nome do produto" required>
+      <input type="number" id="preco" placeholder="Preço" required>
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <ul id="listaProdutos"></ul>
+  </div>
+
+  <script type="module" src="./firebase-config.js"></script>
+  <script type="module" src="./crud.js"></script>
+
+</body>
+</html>
